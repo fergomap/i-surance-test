@@ -1,0 +1,29 @@
+.tweet-component {
+    background-color: #f3f3f3;
+    border-radius: 3px;
+    margin: 10px 0;
+    padding: 10px;
+
+    .user-info {
+        align-items: center;
+        display: flex;
+        margin: 10px 0;
+
+        img {
+            margin-right: 10px;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .user-name {
+            color: #49b092;
+            font-weight: bold;
+        }
+    }
+
+    .hashtag {
+        color: #49b092;
+        font-weight: bold;
+    }
+}

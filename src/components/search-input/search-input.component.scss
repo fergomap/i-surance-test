@@ -1,0 +1,12 @@
+.search-input-component {
+    border-radius: 2px;
+    border: solid 1px gray;
+    box-sizing: border-box;
+    outline: none;
+    padding: 5px 10px;
+    width: 100%;
+
+    &:focus {
+        border-color: #49b092;
+    }
+}
