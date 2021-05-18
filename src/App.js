@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TweetComponent from './components/tweet/tweet.component';
 import SearchInputComponent from './components/search-input/search-input.component';
 import HeaderComponent from './components/header/header.component';
-import { loadMoreTweets } from './redux/actions';
+import { loadMoreTweetsAction } from './redux/actions';
 import './App.scss';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     useEffect(() => {
         const onScroll = () => {
             if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && query && !loading) {
-                dispatch(loadMoreTweets(query, tweets[tweets.length - 1].id));
+                dispatch(loadMoreTweetsAction(query, tweets[tweets.length - 1].id));
             }
         };
 

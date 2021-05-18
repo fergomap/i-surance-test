@@ -1,23 +1,23 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { LOAD_MORE_TWEETS, LOAD_TWEETS } from '../actionTypes';
-import { loadMoreTweets, loadTweets } from '../../services/api.service';
-import { setTweets, setLoadTweetsError, setMoreTweets, setLoadMoreTweetsError } from '../actions';
+import { loadTweets } from '../../services/api.service';
+import { setTweetsAction, setLoadTweetsErrorAction, setMoreTweetsAction, setLoadMoreTweetsErrorAction } from '../actions';
 
 function* getTweets(action) {
     try {
         const data = yield call(loadTweets, action.query);
-        yield put(setTweets(data));
+        yield put(setTweetsAction(data));
     } catch (error) {
-        yield put(setLoadTweetsError('An error occurred, please try again later!'));
+        yield put(setLoadTweetsErrorAction('An error occurred, please try again later!'));
     }
 }
 
 function* getMoreTweets(action) {
     try {
-        const data = yield call(loadMoreTweets, action.query, action.maxId);
-        yield put(setMoreTweets(data));
+        const data = yield call(loadTweets, action.query, action.maxId);
+        yield put(setMoreTweetsAction(data));
     } catch (error) {
-        yield put(setLoadMoreTweetsError('An error occurred, please try again later!'));
+        yield put(setLoadMoreTweetsErrorAction('An error occurred, please try again later!'));
     }
 }
 

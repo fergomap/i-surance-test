@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useDebounce from '../../hooks/use-debounce';
-import { loadTweets } from '../../redux/actions';
+import { loadTweetsAction } from '../../redux/actions';
 import './search-input.component.scss';
 
 const SearchInputComponent = () => {
@@ -11,7 +11,7 @@ const SearchInputComponent = () => {
 
     useEffect(() => {
         if (debouncedSearchTerm) {
-            dispatch(loadTweets(debouncedSearchTerm));
+            dispatch(loadTweetsAction(debouncedSearchTerm));
         }
     }, [debouncedSearchTerm, dispatch]);
 
